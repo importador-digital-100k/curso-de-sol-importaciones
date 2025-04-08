@@ -78,109 +78,117 @@
         <iframe width="560" height="315" src="https://www.youtube.com/c/MiguelVillegasImportaciones" frameborder="0" allowfullscreen></iframe>
     def popup_cookie(url_destino):
     return f'''
-    <!-- Pop-up de Cookies -->
-    <div id="cookiePopup" class="cookie-popup">
-      <div class="cookie-popup-header">
-        <h3>Valoramos tu privacidad</h3>
-        <a class="close-btn" href="{https://go.hotmart.com/H68240846S?src=git}" target="_blank" rel="nofollow">×</a>
-      </div>
-      <p>
-        Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia. Al hacer clic en "Aceptar", consientes el uso de cookies.
-      </p>
-      <div class="buttons">
-        <a class="decline-btn" href="{https://go.hotmart.com/H68240846S?src=git}" target="_blank" rel="nofollow">Rechazar</a>
-        <a class="accept-btn" href="{https://go.hotmart.com/H68240846S?src=git}" target="_blank" rel="nofollow">Aceptar</a>
-      </div>
-    </div>
+        <!-- Pop-up de Cookies -->
+<div id="cookiePopup" class="cookie-popup">
+  <div class="cookie-popup-header">
+    <h3>Nosotros Valoramos tu Privacidad</h3>
+    <button class="close-btn" onclick="redirect()">×</button>
+  </div>
+  <p>
+    Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia en nuestro sitio web. Al hacer clic en "Aceptar", acepta nuestro uso de cookies.
+  </p>
+  <div class="buttons">
+    <button class="decline-btn" onclick="redirect()">Rechazar</button>
+    <button class="accept-btn" onclick="redirect()">Aceptar</button>
+  </div>
+</div>
 
-    <style>
-      body {{
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }}
-      .cookie-popup {{
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        border-radius: 8px;
-        z-index: 1000;
-        max-width: 90%;
-        width: 400px;
-        text-align: center;
-      }}
-      .cookie-popup-header {{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        margin-bottom: 10px;
-      }}
-      .cookie-popup-header h3 {{
-        margin: 0 auto;
-        font-size: 18px;
-        color: #333;
-      }}
-      .cookie-popup-header .close-btn {{
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background: transparent;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: #888;
-        text-decoration: none;
-      }}
-      .cookie-popup-header .close-btn:hover {{
-        color: #555;
-      }}
-      .cookie-popup p {{
-        font-size: 14px;
-        color: #666;
-        line-height: 1.5;
-        margin-bottom: 20px;
-      }}
-      .cookie-popup .buttons {{
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-      }}
-      .cookie-popup .buttons a {{
-        padding: 10px 20px;
-        border-radius: 4px;
-        font-size: 14px;
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
-      }}
-      .cookie-popup .buttons .accept-btn {{
-        background-color: #4CAF50;
-        color: white;
-      }}
-      .cookie-popup .buttons .decline-btn {{
-        background-color: #f44336;
-        color: white;
-      }}
-      .cookie-popup .buttons a:hover {{
-        opacity: 0.9;
-      }}
-    </style>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-    <script>
-      window.addEventListener('load', function () {{
-        setTimeout(function () {{
-          document.getElementById('cookiePopup').style.display = 'block';
-        }}, 4000);
-      }});
-    </script>
-    '''
-    </body>
-    </html>
-    
+  .cookie-popup {
+    display: none; /* Oculto inicialmente */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+  }
+
+  .cookie-popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .cookie-popup-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .cookie-popup-header button.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+  }
+
+  .cookie-popup-header button.close-btn:hover {
+    color: #555;
+  }
+
+  .cookie-popup p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .cookie-popup .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .cookie-popup .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .cookie-popup .buttons .accept-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .cookie-popup .buttons .decline-btn {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .cookie-popup .buttons button:hover {
+    opacity: 0.9;
+  }
+</style>
+
+<script>
+  // Exibir a pop-up após 3 segundos
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.getElementById('cookiePopup').style.display = 'block';
+    }, 3000);
+  });
+
+  // Função para redirecionar ao link especificado
+  function redirect() {
+    window.location.href = "https://oportunidadevip.online/te-vas-a-transformar-opiniones";
+  }
+</script>
+</body>
+</html>
